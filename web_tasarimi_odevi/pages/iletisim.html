@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | Düşler Kütüphanesi</title>
+    <link rel="icon" type="image/png" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../img/favicon.ico" alt="Logo" class="logo-resim">
+            <span class="logo-yazi">Düşler Kütüphanesi</span>
+        </div>
+        <nav>
+            <a href="../index.html">Ana Sayfa</a>
+            <a href="urunler.html">Kitaplar</a>
+            <a href="sepet.html">Sepetim</a>
+            <a href="iletisim.html" class="aktif">İletişim</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="iletisim-kapsayici">
+            
+            <section class="iletisim-bilgi">
+                <h2>Bizimle İletişime Geçin</h2>
+                <p class="iletisim-aciklama">Sorularınız, kitap önerileriniz veya toplu siparişleriniz için bize her zaman ulaşabilirsiniz.</p>
+                
+                <div class="bilgi-listesi">
+                    <div class="bilgi-kart">
+                        <strong>Adres:</strong>
+                        <p>Kelimeler Caddesi, Sayfa Sokak No:34/A Kadıköy / İstanbul</p>
+                    </div>
+                    <div class="bilgi-kart">
+                        <strong>Telefon & E-posta:</strong>
+                        <p>+90 (216) 555 01 23</p>
+                        <p>destek@duslerkutuphanesi.com</p>
+                    </div>
+                    <div class="bilgi-kart">
+                        <strong>Çalışma Saatleri:</strong>
+                        <p>Hafta İçi ve Cumartesi: 09:00 - 20:00</p>
+                        <p>Pazar: Kapalı</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="iletisim-form-alani">
+                <h3>Mesaj Gönderin</h3>
+                
+                <form class="iletisim-formu" id="mesajFormu">
+                    
+                    <div class="form-grup">
+                        <label for="ad-soyad">Adınız Soyadınız</label>
+                        <input type="text" id="ad-soyad" placeholder="Örn: Sıla Menekşe" required>
+                    </div>
+                    
+                    <div class="form-grup">
+                        <label for="eposta">E-posta Adresiniz</label>
+                        <input type="email" id="eposta" placeholder="ornek@mail.com" required>
+                    </div>
+
+                    <div class="form-grup">
+                        <label for="konu">Konu</label>
+                        <input type="text" id="konu" placeholder="Neyle ilgili yazıyorsunuz?" required>
+                    </div>
+                    
+                    <div class="form-grup">
+                        <label for="mesaj">Mesajınız</label>
+                        <textarea id="mesaj" rows="5" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-gonder" onclick="if(document.getElementById('mesajFormu').checkValidity()) { event.preventDefault(); alert('Mesajınız başarıyla gönderildi!'); document.getElementById('mesajFormu').reset(); }">Mesajı Gönder</button>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Düşler Kütüphanesi. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+</body>
+</html>

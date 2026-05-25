@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tüm Kitaplar | Düşler Kütüphanesi</title>
+    <link rel="icon" type="image/png" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../img/favicon.ico" alt="Logo" class="logo-img">
+            <span class="logo-text">Düşler Kütüphanesi</span>
+        </div>
+        <nav>
+            <a href="../index.html">Ana Sayfa</a>
+            <a href="urunler.html" class="active">Kitaplar</a>
+            <a href="sepet.html">Sepetim</a>
+            <a href="iletisim.html">İletişim</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="shop-container">
+            
+            <aside class="sidebar">
+                <h4>Kategoriler</h4>
+                <ul class="cat-list">
+                    <li><a href="#" class="active-cat" onclick="filtrele('hepsi')">Tüm Kitaplar</a></li>
+                    <li><a href="#" onclick="filtrele('roman')">Edebiyat / Roman</a></li>
+                    <li><a href="#" onclick="filtrele('akademik')">Akademik / Eğitim</a></li>
+                    <li><a href="#" onclick="filtrele('bilim')">Bilim & Teknoloji</a></li>
+                    <li><a href="#" onclick="filtrele('tarih')">Tarih & Araştırma</a></li>
+                </ul>
+
+                <section class="oyun-alani">
+                    <h4 class="oyun-baslik">🎮 Kitap Bilmece</h4>
+                    <p class="oyun-aciklama">Yazarı tahmin et, puanı kap!</p>
+                    
+                    <div class="soru-kutusu">
+                        <span id="oyunKitapAdi">...</span>
+                    </div>
+
+                    <div id="seceneklerAlani">
+                        </div>
+
+                    <div id="oyunDurum"></div>
+                    <div class="skor-alani">Skorun: <strong id="oyunSkor">0</strong></div>
+                </section>
+            </aside>
+
+            <section class="products-area">
+                
+                <div class="products-header">
+                    <h2>Tüm Kitaplarimizi Keşfedin</h2>
+                </div>
+                
+                <div class="kitap-kutusu">
+                    
+                    <div class="kart" data-kategori="tarih">
+                        <img src="../img/nutuk.jpg" alt="Nutuk Kitap Kapağı">
+                        <h4>Nutuk</h4>
+                        <p class="yazar">Mustafa Kemal Atatürk</p>
+                        <data value="120" class="fiyat">120 TL</data>
+                        <button onclick="sepeteEkle(1, 'Nutuk', 'Mustafa Kemal Atatürk', 120, '../img/nutuk.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+                    
+                    <div class="kart" data-kategori="roman">
+                        <img src="../img/önyargi.jpg" alt="Gurur ve Önyargı Kitap Kapağı">
+                        <h4>Gurur ve Önyargı</h4>
+                        <p class="yazar">Jane Austen</p>
+                        <data value="85" class="fiyat">85 TL</data>
+                        <button onclick="sepeteEkle(2, 'Gurur ve Önyargı', 'Jane Austen', 85, '../img/önyargi.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+                    
+                    <div class="kart" data-kategori="roman">
+                        <img src="../img/simyaci.jpg" alt="Simyacı Kitap Kapağı">
+                        <h4>Simyacı</h4>
+                        <p class="yazar">Paulo Coelho</p>
+                        <data value="100" class="fiyat">100 TL</data>
+                        <button onclick="sepeteEkle(3, 'Simyacı', 'Paulo Coelho', 100, '../img/simyaci.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+
+                    <div class="kart" data-kategori="tarih">
+                        <img src="../img/nutuk.jpg" alt="Nutuk Özel Baskı Kitap Kapağı">
+                        <h4>Nutuk (Özel Baskı)</h4>
+                        <p class="yazar">Mustafa Kemal Atatürk</p>
+                        <data value="180" class="fiyat">180 TL</data>
+                        <button onclick="sepeteEkle(4, 'Nutuk (Özel Baskı)', 'Mustafa Kemal Atatürk', 180, '../img/nutuk.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+
+                    <div class="kart" data-kategori="roman">
+                        <img src="../img/kucukprens.jpg" alt="Küçük Prens Kitap Kapağı">
+                        <h4>Küçük Prens</h4>
+                        <p class="yazar">Antoine de Saint-Exupéry</p>
+                        <data value="65" class="fiyat">65 TL</data>
+                        <button onclick="sepeteEkle(5, 'Küçük Prens', 'Antoine de Saint-Exupéry', 65, '../img/kucukprens.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+
+                    <div class="kart" data-kategori="roman">
+                        <img src="../img/sekerportakali.jpg" alt="Şeker Portakalı Kitap Kapağı">
+                        <h4>Şeker Portakalı</h4>
+                        <p class="yazar">José Mauro de Vasconcelos</p>
+                        <data value="90" class="fiyat">90 TL</data>
+                        <button onclick="sepeteEkle(6, 'Şeker Portakalı', 'José Mauro de Vasconcelos', 90, '../img/sekerportakali.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+
+                    <div class="kart" data-kategori="roman">
+                        <img src="../img/1984.jpg" alt="1984 Kitap Kapağı">
+                        <h4>1984</h4>
+                        <p class="yazar">George Orwell</p>
+                        <data value="110" class="fiyat">110 TL</data>
+                        <button onclick="sepeteEkle(7, '1984', 'George Orwell', 110, '../img/1984.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+
+                    <div class="kart" data-kategori="akademik">
+                        <img src="../img/damdan-dusen-psikolog.jpg" alt="Damdan Düşen Psikolog Kitap Kapağı">
+                        <h4>Damdan Düşen Psikolog</h4>
+                        <p class="yazar">Doğan Cüceloğlu</p>
+                        <data value="140" class="fiyat">140 TL</data>
+                        <button onclick="sepeteEkle(8, 'Damdan Düşen Psikolog', 'Doğan Cüceloğlu', 140, '../img/damdan-dusen-psikolog.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+
+                    <div class="kart" data-kategori="akademik">
+                        <img src="../img/bir-omur-nasil-yasanir.jpg" alt="Bir Ömür Nasıl Yaşanır Kitap Kapağı">
+                        <h4>Bir Ömür Nasıl Yaşanır</h4>
+                        <p class="yazar">İlber Ortaylı</p>
+                        <data value="155" class="fiyat">155 TL</data>
+                        <button onclick="sepeteEkle(9, 'Bir Ömür Nasıl Yaşanır', 'İlber Ortaylı', 155, '../img/bir-omur-nasil-yasanir.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+
+                    <div class="kart" data-kategori="bilim">
+                        <img src="../img/zamanin-ozeti.jpg" alt="Zamanın Kısa Tarihi Kitap Kapağı">
+                        <h4>Zamanın Kısa Tarihi</h4>
+                        <p class="yazar">Stephen Hawking</p>
+                        <data value="135" class="fiyat">135 TL</data>
+                        <button onclick="sepeteEkle(10, 'Zamanın Kısa Tarihi', 'Stephen Hawking', 135, '../img/zamanin-ozeti.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+
+                    <div class="kart" data-kategori="bilim">
+                        <img src="../img/yapay-zeka.jpg" alt="Yapay Zeka Kitap Kapağı">
+                        <h4>Yapay Zeka ve Gelecek</h4>
+                        <p class="yazar">Kai-Fu Lee</p>
+                        <data value="160" class="fiyat">160 TL</data>
+                        <button onclick="sepeteEkle(11, 'Yapay Zeka ve Gelecek', 'Kai-Fu Lee', 160, '../img/yapay-zeka.jpg')" class="btn-sm">Sepete Ekle</button>
+                    </div>
+
+                </div> 
+            </section> 
+        </div> 
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Düşler Kütüphanesi. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script src="../scripts/myscript.js"></script>
+</body>
+</html>

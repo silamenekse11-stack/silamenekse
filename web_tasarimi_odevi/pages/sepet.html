@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepetim | Düşler Kütüphanesi</title>
+    <link rel="icon" type="image/png" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../img/favicon.ico" alt="Logo" class="logo-img">
+            <span class="logo-text">Düşler Kütüphanesi</span>
+        </div>
+        <nav>
+            <a href="../index.html">Ana Sayfa</a>
+            <a href="urunler.html">Kitaplar</a>
+            <a href="sepet.html" class="active">Sepetim</a>
+            <a href="iletisim.html">İletişim</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="sepet-kapsayici">
+            
+            <section class="sepet-urunleri">
+                <h2>Sepetim</h2>
+            </section>
+
+            <aside class="sepet-ozet">
+                <h3>Sipariş Özeti</h3>
+                
+                <div class="ozet-satir">
+                    <span>Ürünün Toplamı</span>
+                    <span id="urun-toplam-fiyat">0 TL</span>
+                </div>
+                <div class="ozet-satir">
+                    <span>Kargo Ücreti</span>
+                    <span>29.99 TL</span>
+                </div>
+                <div class="ozet-satir indirim">
+                    <span>Kargo Bedava (Yaz Kampanyası)</span>
+                    <span>-29.99 TL</span>
+                </div>
+                
+                <hr class="ozet-cizgi">
+                
+                <div class="ozet-satir genel-toplam">
+                    <span>Genel Toplam</span>
+                    <span id="genel-toplam-fiyat">0 TL</span>
+                </div>
+                
+                <a href="#" class="btn btn-tamamla" onclick="alert('Siparişiniz başarıyla tamamlandı!'); localStorage.removeItem('sepetim'); window.location.reload();">Alışverişi Tamamla</a>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Düşler Kütüphanesi. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script src="../scripts/myscript.js"></script>
+</body>
+</html>
