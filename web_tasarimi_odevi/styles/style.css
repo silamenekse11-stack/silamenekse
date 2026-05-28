@@ -251,7 +251,7 @@ h2 { margin: 10px 0; font-size: 1.6rem; color: #222; }
     box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-top: 30px;
     text-align: center; border: 1px solid #e0e0e0;
 }
-.oyun-baslik { color: #a10f51; margin-bottom: 8px; font-size: 1rem; font-weight: bold; }
+.oyun-baslik { color: hsl(334, 88%, 3%); margin-bottom: 8px; font-size: 1rem; font-weight: bold; }
 .oyun-aciklama { color: #666; margin-bottom: 12px; font-size: 0.85rem; }
 .soru-kutusu { background: #f9f9f9; padding: 10px; border-radius: 6px; margin-bottom: 15px; border: 1px dashed #132e49; }
 #oyunKitapAdi { color: #132e49; font-weight: bold; font-size: 0.95rem; }
@@ -261,10 +261,10 @@ h2 { margin: 10px 0; font-size: 1.6rem; color: #222; }
     border-radius: 6px; background: white; color: #132e49; font-weight: bold;
     cursor: pointer; transition: 0.3s;
 }
-#seceneklerAlani button:hover:not(:disabled) { background: #132e49; color: white; }
+#seceneklerAlani button:hover:not(:disabled) { background: #a10f51; color: white; }
 #seceneklerAlani button:disabled { opacity: 0.6; cursor: not-allowed; }
 #oyunDurum { font-weight: bold; font-size: 0.9rem; margin-top: 5px; min-height: 20px; }
-.skor-alani { margin-top: 8px; color: #555; font-size: 0.9rem; }
+.skor-alani { margin-top: 8px; color: #a10f51; font-size: 0.9rem; }
 
 /* Oyun Bitiş Butonu Stili */
 .btn-yeniden-baslat {
