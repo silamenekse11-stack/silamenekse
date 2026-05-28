@@ -1,10 +1,19 @@
-// --- 1. KATEGORİ FİLTRELEME ---
-function filtrele(kategori, el) {
-    document.querySelectorAll('.kart').forEach(k => 
-        k.style.display = (kategori === 'hepsi' || k.dataset.kategori === kategori) ? "" : "none");
-    
-    document.querySelectorAll('.cat-list a').forEach(a => a.classList.toggle('active-cat', a === el));
-}
+// --- 1. OYUN VERİLERİ ---
+const oyunKitaplari = [
+
+    { ad: "Nutuk", yazar: "Mustafa Kemal Atatürk", siklar: ["Mustafa Kemal Atatürk", "Halide Edib Adıvar", "İlber Ortaylı"] },
+    { ad: "Gurur ve Önyargı", yazar: "Jane Austen", siklar: ["Jane Austen", "George Orwell", "Antoine de Saint-Exupéry"] },
+    { ad: "Simyacı", yazar: "Paulo Coelho", siklar: ["Paulo Coelho", "José Mauro de Vasconcelos", "Doğan Cüceloğlu"] },
+    { ad: "Nutuk (Özel Baskı)", yazar: "Mustafa Kemal Atatürk", siklar: ["Mustafa Kemal Atatürk", "İlber Ortaylı", "Kai-Fu Lee"] },
+    { ad: "Küçük Prens", yazar: "Antoine de Saint-Exupéry", siklar: ["Antoine de Saint-Exupéry", "Jane Austen", "Paulo Coelho"] },
+    { ad: "Şeker Portakalı", yazar: "José Mauro de Vasconcelos", siklar: ["José Mauro de Vasconcelos", "George Orwell", "Doğan Cüceloğlu"] },
+    { ad: "1984", yazar: "George Orwell", siklar: ["George Orwell", "Stephen Hawking", "Kai-Fu Lee"] },
+    { ad: "Damdan Düşen Psikolog", yazar: "Doğan Cüceloğlu", siklar: ["Doğan Cüceloğlu", "İlber Ortaylı", "Mustafa Kemal Atatürk"] },
+    { ad: "Bir Ömür Nasıl Yaşanır", yazar: "İlber Ortaylı", siklar: ["İlber Ortaylı", "Doğan Cüceloğlu", "Kai-Fu Lee"] },
+    { ad: "Zamanın Kısa Tarihi", yazar: "Stephen Hawking", siklar: ["Stephen Hawking", "Kai-Fu Lee", "George Orwell"] },
+    { ad: "Yapay Zeka ve Gelecek", yazar: "Kai-Fu Lee", siklar: ["Kai-Fu Lee", "Stephen Hawking", "Paulo Coelho"] }
+
+];
 
 // --- 2. SEPET ALGORİTMASI ---
 function sepeteEkle(id, isim, yazar, fiyat, resim) {
@@ -20,8 +29,10 @@ function sepetiListele() {
     let urunlerAlani = document.querySelector('.sepet-urunleri');
     let ozetAlani = document.querySelector('.sepet-ozet');
 
+    if (!urunlerAlani) return; // Sayfada sepet alanı yoksa dur
+
     if (sepet.length === 0) {
-        if (urunlerAlani) urunlerAlani.innerHTML = '<h2>Sepetim</h2><div class="bos-sepet">Sepetinizde ürün bulunmamaktadır. <a href="urunler.html" class="btn">Alışverişe Başla</a></div>';
+        urunlerAlani.innerHTML = '<h2>Sepetim</h2><div class="bos-sepet">Sepetinizde ürün bulunmamaktadır. <br><br><a href="urunler.html" class="btn">Alışverişe Başla</a></div>';
         if (ozetAlani) ozetAlani.style.display = "none";
         return;
     }
@@ -41,7 +52,6 @@ function sepetiListele() {
         </div>`).join('');
 
     if(document.getElementById('urun-toplam-fiyat')) document.getElementById('urun-toplam-fiyat').innerText = toplam + " TL";
-    if(document.getElementById('genel-toplam-fiyat')) document.getElementById('genel-toplam-fiyat').innerText = toplam + " TL";
 }
 
 function adetGuncelle(i, degisim) {
@@ -56,21 +66,21 @@ function adetGuncelle(i, degisim) {
 }
 
 // --- 3. OYUN ALANI ---
-const oyunKitaplari = [
-    { ad: "Nutuk", yazar: "Mustafa Kemal Atatürk", siklar: ["Mustafa Kemal Atatürk", "Halide Edib Adıvar", "Ziya Gökalp"] },
-    { ad: "Gurur ve Önyargı", yazar: "Jane Austen", siklar: ["Charles Dickens", "Jane Austen", "Virginia Woolf"] },
-    { ad: "Simyacı", yazar: "Paulo Coelho", siklar: ["Gabriel Garcia Marquez", "Franz Kafka", "Paulo Coelho"] }
-];
-
-let mevcutSoru = {}, skor = 0;
+let mevcutSoru = {}, skor = 0, soruSayaci = 0;
+const TOPLAM_SORU = 10;
 
 function yeniSoruGetir() {
+    if (soruSayaci >= TOPLAM_SORU) {
+        oyunuBitir();
+        return;
+    }
+    soruSayaci++;
     mevcutSoru = oyunKitaplari[Math.floor(Math.random() * oyunKitaplari.length)];
     let alan = document.getElementById("seceneklerAlani");
     if(!alan) return;
     document.getElementById("oyunKitapAdi").innerText = mevcutSoru.ad;
-    document.getElementById("oyunDurum").innerText = "";
-    alan.innerHTML = mevcutSoru.siklar.map(s => `<button onclick="cevapKontrol('${s}')">${s}</button>`).join('');
+    document.getElementById("oyunDurum").innerText = `Soru ${soruSayaci} / ${TOPLAM_SORU}`;
+    alan.innerHTML = mevcutSoru.siklar.map(s => `<button onclick="cevapKontrol('${s}')" class="oyun-btn">${s}</button>`).join('');
 }
 
 function cevapKontrol(secim) {
@@ -78,11 +88,22 @@ function cevapKontrol(secim) {
     skor += dogru ? 10 : (skor > 0 ? -5 : 0);
     document.getElementById("oyunDurum").innerText = dogru ? "🎉 Doğru!" : "❌ Yanlış!";
     document.getElementById("oyunSkor").innerText = skor;
-    document.querySelectorAll("#seceneklerAlani button").forEach(b => b.disabled = true);
-    setTimeout(yeniSoruGetir, 1500);
+    document.querySelectorAll(".oyun-btn").forEach(b => b.disabled = true);
+    setTimeout(() => (soruSayaci < TOPLAM_SORU ? yeniSoruGetir() : oyunuBitir()), 1500);
 }
 
+function oyunuBitir() {
+    document.getElementById("oyunKitapAdi").innerText = "Oyun Bitti!";
+    document.getElementById("oyunDurum").innerText = `Final Skorun: ${skor}`;
+    document.getElementById("seceneklerAlani").innerHTML = `<button onclick="oyunuSifirla()" class="btn-yeniden-baslat">Tekrar Başla</button>`;
+}
+
+function oyunuSifirla() {
+    skor = 0; soruSayaci = 0; document.getElementById("oyunSkor").innerText = skor; yeniSoruGetir();
+}
+
+// --- SAYFA YÜKLENİNCE BAŞLAT ---
 document.addEventListener("DOMContentLoaded", () => {
-    if (document.querySelector('.sepet-kapsayici')) sepetiListele();
+    if (document.querySelector('.sepet-urunleri')) sepetiListele();
     if (document.getElementById("oyunKitapAdi")) yeniSoruGetir();
 });

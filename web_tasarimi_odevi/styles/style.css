@@ -41,7 +41,6 @@ header nav a.active { color: #ffffff; border-bottom: 2px solid #ffffff; }
 .karsilama { text-align: center; padding: 60px 20px; color: #132e49; }
 .karsilama p { margin-bottom: 20px; }
 
-/* DÜZELTME BURADA: Üst boşluk 10px'e indirildi */
 .onecikanlar { padding: 10px 5% 40px 5%; text-align: center; } 
 .onecikanlar h3 { font-size: 2.2rem; margin-bottom: 20px; color: #132e49; }
 
@@ -149,8 +148,8 @@ main { flex: 1; }
     display: flex; 
     gap: 40px; 
     padding: 40px 5%; 
-    max-width: 1200px; /* Genişliği kısıtladık */
-    margin: 0 auto;    /* Ortalamak için */
+    max-width: 1200px; 
+    margin: 0 auto;    
     width: 100%;
 }
 
@@ -196,14 +195,14 @@ html { scroll-behavior: smooth; }
     padding: 40px 10%; 
     max-width: 1000px; 
     margin: 0 auto; 
-    width: 100%; /* Kapsayıcının tam genişlemesini sağlar */
+    width: 100%; 
 }
 
 .kitap-ana-alan { 
     display: flex; 
     gap: 30px; 
     align-items: flex-start; 
-    width: 100%; /* Esnekliği korur */
+    width: 100%; 
 }
 
 .kitap-ana-alan { display: flex; gap: 30px; align-items: flex-start; }
@@ -252,27 +251,25 @@ h2 { margin: 10px 0; font-size: 1.6rem; color: #222; }
     box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-top: 30px;
     text-align: center; border: 1px solid #e0e0e0;
 }
-
-.oyun-baslik { color: #132e49; margin-bottom: 8px; font-size: 1rem; font-weight: bold; }
+.oyun-baslik { color: #a10f51; margin-bottom: 8px; font-size: 1rem; font-weight: bold; }
 .oyun-aciklama { color: #666; margin-bottom: 12px; font-size: 0.85rem; }
-
-.soru-kutusu {
-    background: #f9f9f9; padding: 10px; border-radius: 6px;
-    margin-bottom: 15px; border: 1px dashed #132e49;
-}
+.soru-kutusu { background: #f9f9f9; padding: 10px; border-radius: 6px; margin-bottom: 15px; border: 1px dashed #132e49; }
 #oyunKitapAdi { color: #132e49; font-weight: bold; font-size: 0.95rem; }
-
 #seceneklerAlani { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
-
 #seceneklerAlani button {
     width: 100%; padding: 8px 10px; font-size: 0.85rem; border: 1px solid #132e49;
     border-radius: 6px; background: white; color: #132e49; font-weight: bold;
     cursor: pointer; transition: 0.3s;
 }
-
-/* Buton Etkileşimleri */
 #seceneklerAlani button:hover:not(:disabled) { background: #132e49; color: white; }
 #seceneklerAlani button:disabled { opacity: 0.6; cursor: not-allowed; }
-
 #oyunDurum { font-weight: bold; font-size: 0.9rem; margin-top: 5px; min-height: 20px; }
 .skor-alani { margin-top: 8px; color: #555; font-size: 0.9rem; }
+
+/* Oyun Bitiş Butonu Stili */
+.btn-yeniden-baslat {
+    width: 100%; padding: 10px; background-color: #a10f51;; color: white;
+    border: none; border-radius: 6px; font-size: 0.9rem; font-weight: bold;
+    cursor: pointer; transition: 0.3s; margin-top: 10px;
+}
+.btn-yeniden-baslat:hover { background-color: #a10f51; }
