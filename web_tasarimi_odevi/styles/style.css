@@ -46,7 +46,8 @@ header nav a.active { color: #ffffff; border-bottom: 2px solid #ffffff; }
 
 .kitap-kutusu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .kart { background: #ffffff; padding: 25px; border-radius: 18px; 
-box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid #e0e0e0; }
+box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid #e0e0e0;
+display: flex; flex-direction: column; align-items: center; }
 .kart img { width: 150px; height: 220px; object-fit: cover; 
     border-radius: 12px; margin: 0 auto 15px; display: block; }
 .fiyat { display: block; font-size: 1.4rem; font-weight: bold; margin: 10px 0; }
